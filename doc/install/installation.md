@@ -50,7 +50,11 @@ edited by hand. But, you can use any editor you like instead.
 
 Install the required packages:
 
-    sudo apt-get install -y build-essential zlib1g-dev libyaml-dev libssl-dev libgdbm-dev libreadline-dev libncurses5-dev libffi-dev curl git-core openssh-server redis-server postfix checkinstall libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev
+    sudo apt-get install -y build-essential zlib1g-dev libyaml-dev libssl-dev libgdbm-dev libreadline-dev libncurses5-dev libffi-dev curl git-core openssh-server redis-server postfix checkinstall libxml2-dev libxslt-dev libcurl4-openssl-dev libicu-dev ruby1.9.1-dev
+
+Install the Bundler Gem:
+
+    sudo gem install bundler
 
 Make sure you have the right version of Python installed.
 
@@ -70,29 +74,13 @@ Make sure you have the right version of Python installed.
     sudo ln -s /usr/bin/python /usr/bin/python2
 
 
-# 2. Ruby
-
-Download and compile it:
-
-    mkdir /tmp/ruby && cd /tmp/ruby
-    curl --progress http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.gz | tar xz
-    cd ruby-1.9.3-p327
-    ./configure
-    make
-    sudo make install
-
-Install the Bundler Gem:
-
-    sudo gem install bundler
-
-
-# 3. System Users
+# 2. System Users
 
 Create a `git` user for Gitlab:
 
     sudo adduser --disabled-login --gecos 'GitLab' git
 
-# 4. GitLab shell
+# 3. GitLab shell
 
     # Login as git 
     sudo su git
@@ -109,12 +97,12 @@ Create a `git` user for Gitlab:
     ./bin/install 
 
 
-# 5. Database
+# 4. Database
 
 To setup the MySQL/PostgreSQL database and dependencies please see [`doc/install/databases.md`](./databases.md).
 
 
-# 6. GitLab
+# 5. GitLab
 
     # We'll install GitLab into home directory of the user "git"
     cd /home/git
